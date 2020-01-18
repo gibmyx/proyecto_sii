@@ -19,6 +19,10 @@ Route::get('/vue', function () {
     return view('vue');
 });
 
+Route::get('/vue2', function () {
+    return view('vue2');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
