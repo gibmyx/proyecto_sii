@@ -15,11 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/vue', function () {
-    return view('vue');
-});
-
-Route::get('/vue2', 'Vue2@index');
+Route::get('/vue', 'Vue@index');
 
 Auth::routes();
 
