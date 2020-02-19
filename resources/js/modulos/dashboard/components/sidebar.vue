@@ -12,12 +12,12 @@
                         </div>
                     </li>
                     
-                    <li class="active">
+                    <li>
                         <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
                     </li>
 
-                    <li>
-                        <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
+                    <li class="active">
+                        <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
                     </li>
                     
                     <li>
