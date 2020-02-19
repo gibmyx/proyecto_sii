@@ -13,7 +13,7 @@ class Vue extends Controller
         if(Auth::check()){
             return view('Vue');
         }else{
-            return view('welcome');
+            return redirect('/');
         }
         
     }

@@ -2024,12 +2024,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -38096,7 +38090,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [_c("sidebar")], 1)
+  return _c("div", [_c("sidebar")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38140,7 +38134,7 @@ var staticRenderFns = [
             { staticClass: "nav metismenu", attrs: { id: "side-menu" } },
             [
               _c("li", { staticClass: "nav-header" }, [
-                _c("div", { staticClass: "dropdown profile-element profile" }, [
+                _c("div", { staticClass: "profile-element profile" }, [
                   _c("img", {
                     staticClass: "rounded-circle",
                     attrs: { alt: "image", src: "img/profile_small.jpg" }
@@ -38158,51 +38152,7 @@ var staticRenderFns = [
                       ]),
                       _vm._v(" "),
                       _c("span", { staticClass: "text-muted text-xs block" }, [
-                        _vm._v("Art Director "),
-                        _c("b", { staticClass: "caret" })
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    {
-                      staticClass: "dropdown-menu animated fadeInRight m-t-xs"
-                    },
-                    [
-                      _c("li", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            attrs: { href: "#" }
-                          },
-                          [_vm._v("Perfil")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            attrs: { href: "#" }
-                          },
-                          [_vm._v("Correo")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "dropdown-divider" }),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            attrs: { href: "#" }
-                          },
-                          [_vm._v("Logout")]
-                        )
+                        _vm._v("Art Director")
                       ])
                     ]
                   )

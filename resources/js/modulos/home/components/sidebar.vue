@@ -3,18 +3,12 @@
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
-                        <div class="dropdown profile-element profile">
+                        <div class="profile-element profile">
                             <img alt="image" class="rounded-circle" src="img/profile_small.jpg"/>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="block m-t-xs font-bold">David Williams</span>
-                                <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                                <span class="text-muted text-xs block">Art Director</span>
                             </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Correo</a></li>
-                                <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                            </ul>
                         </div>
                     </li>
                     

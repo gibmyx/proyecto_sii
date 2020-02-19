@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    protected $session;
+
+    
     /**
      * Create a new controller instance.
      *
@@ -21,8 +25,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        $user = Auth::user();
+        $request->session()->put([  'usuario' =>  $user->name,
+                                    'email' => $user->email,
+                                    'user_id' => $user->id]);
+        $this->session = $request->session()->all();
         return view('home');
     }
 }

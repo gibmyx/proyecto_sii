@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/vue', 'Vue@index');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/vue', 'Vue@index');
+
+Route::get('/dashboard', 'dashboardController@index');
