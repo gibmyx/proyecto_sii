@@ -13,11 +13,11 @@
                 </li>
                 
                 <li class="active">
-                    <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
+                    <a href="home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
                 </li>
 
                 <li>
-                    <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Pelfir</span></a>
+                    <a href="dashboard"><i class="fa fa-diamond"></i> <span class="nav-label">Pelfir</span></a>
                 </li>
                 
                 <li>

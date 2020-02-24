@@ -39355,7 +39355,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "active" }, [
-                _c("a", { attrs: { href: "#" } }, [
+                _c("a", { attrs: { href: "home" } }, [
                   _c("i", { staticClass: "fa fa-diamond" }),
                   _vm._v(" "),
                   _c("span", { staticClass: "nav-label" }, [
@@ -39365,7 +39365,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
+                _c("a", { attrs: { href: "dashboard" } }, [
                   _c("i", { staticClass: "fa fa-diamond" }),
                   _vm._v(" "),
                   _c("span", { staticClass: "nav-label" }, [_vm._v("Pelfir")])
