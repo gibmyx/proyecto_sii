@@ -41,6 +41,29 @@ export default {
 }
 </script>
 <style>
- 
+    nav .sidebar-collapse  .metismenu li {
+        font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        color: #676a6c;
+    }
+
+    nav .sidebar-collapse  .metismenu {
+        background-color: transparent;
+        border-color: #2f4050;
+    }
+
+    .navbar-default {
+        background-color: #2f4050;
+        height: 100vh;
+    }
+    
+    .profile a{
+        text-decoration: none;
+    }
+
+    .profile a:hover{
+        text-decoration: none;
+        color: #ffffff;
+    }
 
 </style>
