@@ -2,12 +2,14 @@
     <div>
         <sidebar></sidebar>
         <contenido></contenido>
+        <contenedor></contenedor>
     </div>
 </template>
 
 <script>
     import sidebar from "./sidebar";
     import contenido from "./contenido";
+    import contenedor from "./contenedor";
 
     export default {
         mounted() {
@@ -16,6 +18,7 @@
         components: {
             sidebar,
             contenido,
+            contenedor
         }
 
     }

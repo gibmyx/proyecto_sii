@@ -10,8 +10,8 @@
 <script>
 export default {
     mounted() {
-            console.log('desde sidebar')
-        },
+            console.log('desde contenido')
+    },
 }
 </script>
 <style>
