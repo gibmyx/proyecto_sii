@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::post('/home/ajax_get_detalle', 'HomeController@ajax_get_detalle');
+//Route::resource("home", "HomeController");
 Route::get('/vue', 'Vue@index');
-
 Route::get('/dashboard', 'dashboardController@index');

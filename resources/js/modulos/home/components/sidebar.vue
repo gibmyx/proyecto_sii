@@ -17,7 +17,7 @@
                 </li>
 
                 <li>
-                    <a href="dashboard"><i class="fa fa-diamond"></i> <span class="nav-label">Pelfir</span></a>
+                    <a href="dashboard"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
                 </li>
                 
                 <li>
@@ -36,7 +36,6 @@
 <script>
 export default {
     mounted() {
-            console.log('desde sidebar')
     },
 }
 </script>

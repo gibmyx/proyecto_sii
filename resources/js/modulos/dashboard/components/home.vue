@@ -10,17 +10,29 @@
 
 <script>
     import sidebar from "./sidebar";
-    import navbar from "./navbar";
+    import navbar from "./../../../components/navbar";
     import contenedor from "./contenedor";
 
     export default {
         mounted() {
-            console.log('Component mounted.')
+            this.ajax_detalle();
         },
         components: {
             sidebar,
             navbar,
             contenedor
+        },
+        methods: {
+             ajax_detalle() {
+                 console.log('hola');
+                let formData = new FormData();
+                axios.post('http://localhost/trello_uni/public/HomeController/ajax_get_detalle').then((response) => {
+
+                }).catch((error) => {
+
+                });
+                
+            },
         }
 
     }
