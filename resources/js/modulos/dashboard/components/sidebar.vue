@@ -4,10 +4,11 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="profile-element profile">
-                        <img alt="image" class="rounded-circle" src="img/profile_small.jpg"/>
+                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'hombre'" height="60px" width="60px" alt="image" class="rounded-circle" src="img/profile/perfil-hombre-default.jpg"/>
+                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'mujer'"  height="60px" width="60px" alt="image" class="rounded-circle" src="img/profile/perfil-mujer-default.jpg"/>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold">David Williams</span>
-                            <span class="text-muted text-xs block">Art Director</span>
+                            <span class="block m-t-xs font-bold">{{data.nombre}} {{data.apellido}}</span>
+                            <span class="text-muted text-xs block">Programador BackEnd</span>
                         </a>
                     </div>
                 </li>
@@ -35,12 +36,22 @@
 </template>
 <script>
 export default {
+    props:{
+        data: Object,
+    },
+    data:function(){
+        return {};
+    },
+    components: {
+	},
+    methods:{
+    },
     mounted() {
     },
 }
 </script>
 <style>
-    /*nav .sidebar-collapse  .metismenu li {
+    nav .sidebar-collapse  .metismenu li {
         font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 13px;
         color: #676a6c;
@@ -53,7 +64,7 @@ export default {
 
     .navbar-default {
         background-color: #2f4050;
-        height: 100vh;
+        height: 100%;
     }
     
     .profile a{
@@ -63,6 +74,6 @@ export default {
     .profile a:hover{
         text-decoration: none;
         color: #ffffff;
-    }*/
+    }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div id="wrapper">
-        <sidebar :nombre="nombre"></sidebar>
+        <sidebar :data="data"></sidebar>
         <div id="page-wrapper" class="gray-bg dashbard-1">
             <navbar></navbar>
             <contenedor></contenedor>
@@ -16,7 +16,14 @@
     export default {
         data:function(){
             return {
-                nombre: '',
+                data: {
+                    nombre: '',
+                    apellido: '',
+                    sex: '',
+                    profile: '',
+                }
+                
+                
             };
         },
         mounted() {
@@ -31,7 +38,10 @@
              ajax_detalle() {
                 let formData = new FormData();
                 axios.post('/ajax_get_detalle').then((response) => {
-                    this.nombre = response.data.data.usuario;
+                    this.data.nombre = response.data.data.usuario;
+                    this.data.apellido = response.data.data.apellido;
+                    this.data.sex = response.data.data.sex;
+                    this.data.profile = response.data.data.profile;
                 }).catch((error) => {
 
                 });
@@ -40,3 +50,9 @@
         }
     }
 </script>
+
+<style>
+    #wrapper {
+        background-color: #2f4050;
+    }
+</style>

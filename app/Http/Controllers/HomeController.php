@@ -36,9 +36,12 @@ class HomeController extends Controller
         $response = [
             'code' => 201,
             'data' =>  ['usuario' =>  $user->name,
+                        "apellido" => $user->last,
                         'email' => $user->email,
-                        'user_id' => $user->id]
-        ];
+                        'user_id' => $user->id,
+                        "profile" => $user->profile,
+                        "sex" => $user->sex]
+                    ];
         return response()->json($response, 200);
     }
 }

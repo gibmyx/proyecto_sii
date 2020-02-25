@@ -19,76 +19,37 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+
+        body{
+            height: 100vh;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-
+<div id="app" style="height: 100vh">
+        <main class="py-4" style="height: 100vh">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-md-4">
                         <div class="card">
-                            <div class="card-header">{{ __('Register') }}</div>
+                            <div class="card-header text-center">{{ __('Register') }}</div>
 
                             <div class="card-body">
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
 
                                     <div class="form-group row">
-                                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                        <label for="name" class="col-md-12 col-form-label text-md-left">Nombre</label>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                             @error('name')
@@ -100,9 +61,34 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                        <label for="last" class="col-md-12 col-form-label text-md-left">Apellido</label>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <input id="last" type="text" class="form-control @error('last') is-invalid @enderror" name="last" value="{{ old('last') }}" autofocus>
+
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="sex" class="col-md-12 col-form-label text-md-left">Sexo</label>
+
+                                        <div class="col-md-12">
+                                            <select  id="sex" class="form-control" id="exampleFormControlSelect1" name="sex" value="{{ old('sex') }}">
+                                                <option>hombre</option>
+                                                <option>mujer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="email" class="col-md-12 col-form-label text-md-left">Direccion de correo</label>
+
+                                        <div class="col-md-12">
                                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                             @error('email')
@@ -114,9 +100,9 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                        <label for="password" class="col-md-12 col-form-label text-md-left">Contraseña</label>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                             @error('password')
@@ -128,19 +114,25 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                        <label for="password-confirm" class="col-md-12 col-form-label text-md-left">Confirmar contraseña</label>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                         </div>
                                     </div>
 
                                     <div class="form-group row mb-0">
-                                        <div class="col-md-6 offset-md-4">
+                                        <div class="col-md-12 justify-content-center d-flex">
                                             <button type="submit" class="btn btn-primary">
                                                 {{ __('Register') }}
                                             </button>
+                                            <a class="btn btn-link" href="{{ route('login') }}">¿Ya tienes cuenta?</a>
                                         </div>
+                                    </div>
+                                    <div class="form-group row mb-0">
+                                        <a class="navbar-brand" href="{{ url('/') }}">
+                                            {{ config('app.name', 'Laravel') }}
+                                        </a>
                                     </div>
                                 </form>
                             </div>

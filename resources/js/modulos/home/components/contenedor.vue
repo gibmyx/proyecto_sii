@@ -1,4 +1,5 @@
 <template>
+    <div>
     <div class="row  border-bottom white-bg dashboard-header">
             
             <div class="col-md-3">
@@ -86,6 +87,137 @@
                 </div>
             </div>
         </div>
+
+        <div class="wrapper wrapper-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+
+                        <div class="col-lg-4">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>New data for the report</h5> <span class="label label-primary">IN+</span>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link" href="#">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="#" class="dropdown-item">Config option 1</a>
+                                            </li>
+                                            <li><a href="#" class="dropdown-item">Config option 2</a>
+                                            </li>
+                                        </ul>
+                                        <a class="close-link" href="#">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <div>
+
+                                        <div class="float-right text-right">
+
+                                            <span class="bar_dashboard">Hola</span>
+                                            <br/>
+                                            <small class="font-bold">$ 20 054.43</small>
+                                        </div>
+                                        <h4>NYS report new data!
+                                            <br/>
+                                            <small class="m-r"><a href="graph_flot.html"> Check the stock price! </a> </small>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>New data for the report</h5> <span class="label label-primary">IN+</span>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link" href="#">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="#" class="dropdown-item">Config option 1</a>
+                                            </li>
+                                            <li><a href="#" class="dropdown-item">Config option 2</a>
+                                            </li>
+                                        </ul>
+                                        <a class="close-link" href="#">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <div>
+
+                                        <div class="float-right text-right">
+
+                                            <span class="bar_dashboard">Hola</span>
+                                            <br/>
+                                            <small class="font-bold">$ 20 054.43</small>
+                                        </div>
+                                        <h4>NYS report new data!
+                                            <br/>
+                                            <small class="m-r"><a href="graph_flot.html"> Check the stock price! </a> </small>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>New data for the report</h5> <span class="label label-primary">IN+</span>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link" href="#">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="#" class="dropdown-item">Config option 1</a>
+                                            </li>
+                                            <li><a href="#" class="dropdown-item">Config option 2</a>
+                                            </li>
+                                        </ul>
+                                        <a class="close-link" href="#">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <div>
+
+                                        <div class="float-right text-right">
+
+                                            <span class="bar_dashboard">Hola</span>
+                                            <br/>
+                                            <small class="font-bold">$ 20 054.43</small>
+                                        </div>
+                                        <h4>NYS report new data!
+                                            <br/>
+                                            <small class="m-r"><a href="graph_flot.html"> Check the stock price! </a> </small>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 <script>
 export default {
