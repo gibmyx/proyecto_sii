@@ -50,7 +50,7 @@ export default {
 }
 </script>
 <style>
-    nav .sidebar-collapse  .metismenu li {
+    /*nav .sidebar-collapse  .metismenu li {
         font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 13px;
         color: #676a6c;
@@ -73,6 +73,6 @@ export default {
     .profile a:hover{
         text-decoration: none;
         color: #ffffff;
-    }
+    }*/
 
 </style>
