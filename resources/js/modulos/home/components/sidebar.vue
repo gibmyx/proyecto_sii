@@ -6,7 +6,7 @@
                     <div class="profile-element profile">
                         <img alt="image" class="rounded-circle" src="img/profile_small.jpg"/>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold">David Williams</span>
+                            <span class="block m-t-xs font-bold">{{nombre}}</span>
                             <span class="text-muted text-xs block">Art Director</span>
                         </a>
                     </div>
@@ -35,6 +35,16 @@
 </template>
 <script>
 export default {
+    props:{
+        nombre: String,
+    },
+    data:function(){
+        return {};
+    },
+    components: {
+	},
+    methods:{
+    },
     mounted() {
     },
 }

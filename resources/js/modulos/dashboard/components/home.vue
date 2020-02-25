@@ -24,9 +24,8 @@
         },
         methods: {
              ajax_detalle() {
-                 console.log('hola');
                 let formData = new FormData();
-                axios.post('http://localhost/trello_uni/public/HomeController/ajax_get_detalle').then((response) => {
+                axios.post('/ajax_get_detalle').then((response) => {
 
                 }).catch((error) => {
 

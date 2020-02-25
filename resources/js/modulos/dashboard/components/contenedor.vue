@@ -90,7 +90,6 @@
 <script>
 export default {
     mounted() {
-            console.log('desde sidebar')
     },
 }
 </script>

@@ -14,11 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/vue', 'Vue@index');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/home/ajax_get_detalle', 'HomeController@ajax_get_detalle');
-//Route::resource("home", "HomeController");
-Route::get('/vue', 'Vue@index');
-Route::get('/dashboard', 'dashboardController@index');
+
+//CONTROLLADOR HOME
+Route::post('/ajax_get_detalle', 'HomeController@ajax_get_detalle');
+Route::resource("home", "HomeController");
+
+
+//CONTROLADOR DASHBOARD
+Route::resource('/dashboard', 'dashboardController@index');

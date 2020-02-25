@@ -2082,9 +2082,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('desde sidebar');
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -2188,9 +2186,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('desde sidebar');
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -2231,9 +2227,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     ajax_detalle: function ajax_detalle() {
-      console.log('hola');
       var formData = new FormData();
-      axios.post('http://localhost/trello_uni/public/HomeController/ajax_get_detalle').then(function (response) {})["catch"](function (error) {});
+      axios.post('/ajax_get_detalle').then(function (response) {})["catch"](function (error) {});
     }
   }
 });
@@ -2285,9 +2280,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('desde sidebar');
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -2422,6 +2415,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      nombre: ''
+    };
+  },
   mounted: function mounted() {
     this.ajax_detalle();
   },
@@ -2432,9 +2430,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     ajax_detalle: function ajax_detalle() {
-      console.log('hola');
+      var _this = this;
+
       var formData = new FormData();
-      axios.post('http://localhost/trello_uni/public/home/ajax_get_detalle').then(function (response) {})["catch"](function (error) {});
+      axios.post('/ajax_get_detalle').then(function (response) {
+        _this.nombre = response.data.data.usuario;
+      })["catch"](function (error) {});
     }
   }
 });
@@ -2486,6 +2487,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    nombre: String
+  },
+  data: function data() {
+    return {};
+  },
+  components: {},
+  methods: {},
   mounted: function mounted() {}
 });
 
@@ -39446,7 +39455,7 @@ var render = function() {
     "div",
     { attrs: { id: "wrapper" } },
     [
-      _c("sidebar"),
+      _c("sidebar", { attrs: { nombre: _vm.nombre } }),
       _vm._v(" "),
       _c(
         "div",
@@ -39480,99 +39489,115 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "nav",
+    {
+      staticClass: "navbar-default navbar-static-side",
+      attrs: { role: "navigation" }
+    },
+    [
+      _c("div", { staticClass: "sidebar-collapse" }, [
+        _c("ul", { staticClass: "nav metismenu", attrs: { id: "side-menu" } }, [
+          _c("li", { staticClass: "nav-header" }, [
+            _c("div", { staticClass: "profile-element profile" }, [
+              _c("img", {
+                staticClass: "rounded-circle",
+                attrs: { alt: "image", src: "img/profile_small.jpg" }
+              }),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "dropdown-toggle",
+                  attrs: { "data-toggle": "dropdown", href: "#" }
+                },
+                [
+                  _c("span", { staticClass: "block m-t-xs font-bold" }, [
+                    _vm._v(_vm._s(_vm.nombre))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-muted text-xs block" }, [
+                    _vm._v("Art Director")
+                  ])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _vm._m(4)
+        ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      {
-        staticClass: "navbar-default navbar-static-side",
-        attrs: { role: "navigation" }
-      },
-      [
-        _c("div", { staticClass: "sidebar-collapse" }, [
-          _c(
-            "ul",
-            { staticClass: "nav metismenu", attrs: { id: "side-menu" } },
-            [
-              _c("li", { staticClass: "nav-header" }, [
-                _c("div", { staticClass: "profile-element profile" }, [
-                  _c("img", {
-                    staticClass: "rounded-circle",
-                    attrs: { alt: "image", src: "img/profile_small.jpg" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "dropdown-toggle",
-                      attrs: { "data-toggle": "dropdown", href: "#" }
-                    },
-                    [
-                      _c("span", { staticClass: "block m-t-xs font-bold" }, [
-                        _vm._v("David Williams")
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "text-muted text-xs block" }, [
-                        _vm._v("Art Director")
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "active" }, [
-                _c("a", { attrs: { href: "home" } }, [
-                  _c("i", { staticClass: "fa fa-diamond" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "nav-label" }, [
-                    _vm._v("Proyectos")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "dashboard" } }, [
-                  _c("i", { staticClass: "fa fa-diamond" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "nav-label" }, [_vm._v("Perfil")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "fa fa-pie-chart" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "nav-label" }, [_vm._v("Correo")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "fa fa-flask" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "nav-label" }, [_vm._v("Widgets")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "fa fa-laptop" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "nav-label" }, [
-                    _vm._v("Grid options")
-                  ])
-                ])
-              ])
-            ]
-          )
-        ])
-      ]
-    )
+    return _c("li", { staticClass: "active" }, [
+      _c("a", { attrs: { href: "home" } }, [
+        _c("i", { staticClass: "fa fa-diamond" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "nav-label" }, [_vm._v("Proyectos")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "dashboard" } }, [
+        _c("i", { staticClass: "fa fa-diamond" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "nav-label" }, [_vm._v("Perfil")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("i", { staticClass: "fa fa-pie-chart" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "nav-label" }, [_vm._v("Correo")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("i", { staticClass: "fa fa-flask" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "nav-label" }, [_vm._v("Widgets")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("i", { staticClass: "fa fa-laptop" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "nav-label" }, [_vm._v("Grid options")])
+      ])
+    ])
   }
 ]
 render._withStripped = true
