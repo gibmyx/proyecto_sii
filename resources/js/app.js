@@ -21,6 +21,9 @@ window.Vue = require('vue');
 
 Vue.component('home', require('./modulos/home/components/home.vue').default);
 Vue.component('dashboard', require('./modulos/dashboard/components/home.vue').default);
+Vue.component('correo', require('./modulos/correo/components/home.vue').default);
+Vue.component('correover', require('./modulos/correo_ver/components/home.vue').default);
+Vue.component('correocrear', require('./modulos/correo_crear/components/home.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

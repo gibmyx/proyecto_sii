@@ -22,7 +22,7 @@
                 </li>
                 
                 <li>
-                    <a href="#"><i class="fa fa-pie-chart"></i> <span class="nav-label">Correo</span>  </a>
+                    <a href="correo"><i class="fa fa-pie-chart"></i> <span class="nav-label">Correo</span>  </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>

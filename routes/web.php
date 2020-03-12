@@ -27,3 +27,9 @@ Route::resource("home", "HomeController");
 
 //CONTROLADOR DASHBOARD
 Route::resource('/dashboard', 'dashboardController');
+
+
+//CONTROLLER CORREO
+Route::resource('/correo', 'correoController');
+Route::get('/correo/crear', 'correoController@crear');
+Route::get('/correo/ver', 'correoController@ver');

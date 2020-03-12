@@ -3,7 +3,7 @@
         <sidebar :data="data"></sidebar>
         <div id="page-wrapper" class="gray-bg dashbard-1">
             <navbar></navbar>
-            <contenedor :data="data"></contenedor>
+            <contenedor></contenedor>
         </div>
     </div>
 </template>
