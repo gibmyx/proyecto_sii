@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class dashboardController extends Controller
+class proyectosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +13,7 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
-            return view('dashboard');
-        }else{
-            return redirect('/');
-        }
+        //
     }
 
     /**
@@ -86,6 +81,4 @@ class dashboardController extends Controller
     {
         //
     }
-
-    
 }
