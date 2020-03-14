@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <correocrear></correocrear>
+    <correo_crear></correo_crear>
 @endsection
