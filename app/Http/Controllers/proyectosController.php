@@ -15,6 +15,17 @@ class proyectosController extends Controller
      */
     public function index()
     {
+        if(Auth::check()){
+            return view('ver_proyecto');
+        }else{
+            return redirect('/');
+        }
+    }
+
+
+
+    public function ajax_get_proyecto(Request $request)
+    {
         $user = Auth::user();
         $response = [
                     'proyectos' =>  (new proyecto())->where('user_id', $user->id)->get()->map(function (proyecto $proyecto){

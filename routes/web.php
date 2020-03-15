@@ -37,5 +37,5 @@ Route::get('/correo/ver', 'correoController@ver');
 
 //CONTROLLADOR PROYECTO
 Route::resource('/proyecto', 'proyectosController');
-Route::post('/proyecto/ajax_get_proyecto', 'proyectosController@index');
+Route::post('/proyecto/ajax_get_proyecto', 'proyectosController@ajax_get_proyecto');
 Route::post('/proyecto/store', 'proyectosController@store');
