@@ -12,5 +12,7 @@ class Proyecto extends Model
         'nombre',
         'descripcion',
         'user_id',
+        'cantidad_personas',
+        'estado',
     ];
 }

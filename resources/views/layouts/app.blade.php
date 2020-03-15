@@ -15,7 +15,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-
+    <link href="{{ asset('css/plugins/toastr/toastr.min') }}" rel="stylesheet">
     <style>
         .menu-navbar {
             background-color: #f3f3f4;
@@ -39,6 +39,7 @@
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
     <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/plugins/toastr/toastr.min') }}"></script> -->
 </body>
 
 </html>

@@ -33,3 +33,9 @@ Route::resource('/dashboard', 'dashboardController');
 Route::resource('/correo', 'correoController');
 Route::get('/correo/crear', 'correoController@crear');
 Route::get('/correo/ver', 'correoController@ver');
+
+
+//CONTROLLADOR PROYECTO
+Route::resource('/proyecto', 'proyectosController');
+Route::post('/proyecto/ajax_get_proyecto', 'proyectosController@index');
+Route::post('/proyecto/store', 'proyectosController@store');

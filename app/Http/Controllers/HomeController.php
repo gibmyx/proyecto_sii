@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use  App\modulos\proyectos\models\proyecto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,7 +41,6 @@ class HomeController extends Controller
                         'user_id' => $user->id,
                         "profile" => $user->profile,
                         "sex" => $user->sex,
-                        "proyectos" => (new proyecto())->where('user_id', $user->id)->get()->toArray(),
                         ]
                     ];
         return response()->json($response, 200);

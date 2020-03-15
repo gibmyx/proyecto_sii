@@ -9,8 +9,25 @@
                     <h4 class="modal-title">Crear Nuevo Proyecto</h4>
                 </div>
                 <div class="modal-body">
-                    <form :id="name + 'form'" class="tab-content" style="height: 120px !important;">
-                        
+                    <form :id="name + 'form'" class="tab-content" style="height: 300px !important;">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Email address</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre del proyecto" v-model="nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Example select</label>
+                                <select class="form-control" id="cantidad_persibas" v-model="cantidad_personas">
+                                    <option>5</option>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>50</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Example textarea</label>
+                                <textarea class="form-control" id="descripcion" rows="3" v-model="descripcion"></textarea>
+                            </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -21,8 +38,8 @@
                             </button>
                         </div>
                         <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <button type="button" class="btn btn-primary btn-block" @click="guardarFile"
-                                    :disabled="disableSave"><i class="fa fa-save"></i> Guardar
+                            <button type="button" class="btn btn-primary btn-block" @click="guardar"
+                                ><i class="fa fa-save"></i> Guardar
                             </button>
                         </div>
                     </div>
@@ -32,15 +49,16 @@
     </div>
 </template>
 <script>
+import toastr from 'toastr';
+
     export default {
         name: "nuevoproyecto",
 
         data() {
             return {
-                loading: true,
-                disableSave: false,
-                files: [],
-                resolve: null,
+                nombre: '',
+                cantidad_personas: '',
+                descripcion: '',
                 name: 'nuevoproyecto'
 
             };
@@ -54,9 +72,6 @@
 
         },
         methods: {
-            previewFiles(event) {
-                this.files = event.target.files[0];
-            },
             hide() {
                 let modal = $('#' + this.name + 'Modal');
                 modal.modal('hide');
@@ -68,31 +83,25 @@
                     modal.modal('show');
                 });
             },
-            guardarFile() {
+            guardar() {
                 return new Promise((resolve) => {
                     let formData = new FormData();
-                    let fileSelector = document.querySelector('#subir_archivo2');
-                    let file = fileSelector.files[0];
-                    let modal = $('#' + this.name + 'Modal');
-                    if (!!file) {
-                        formData.append("file", file);
-                        formData.append("erptkn", window.tkn);
-                        axios.post( phost() + 'colaborador/ajax_importar_especie_automovil',formData ).then((response) => {
-                            toastr.success(response.data.message);
-                            modal.modal('hide');
-                            this.files = [];
-                            resolve();
+                    
+                    formData.append("nombre", this.nombre);
+                    formData.append("descripcion", this.descripcion);
+                    formData.append("cantidad_personas", this.cantidad_personas)
+                    this.hide();
 
-                            this.resolve({
-                                value: response.data.automoviles
-                            })
-                        }).catch((error) => {
-                            toastr.error(error.response.data.message);
-                            modal.modal('hide');
-                        });
-                    } else {
-                        resolve();
-                    }
+                    axios.post('proyecto/store',formData ).then((response) => {
+                        toastr.success("Se a creado el proyecto");
+                        this.nombre = '';
+                        this.cantidad_personas = '';
+                        this.descripcion = '';
+                        this.$emit('llamarFuncion');
+                    }).catch((error) => {
+                        //toastr.error(error.response.data.message);
+
+                    });
                 });
             },
         },

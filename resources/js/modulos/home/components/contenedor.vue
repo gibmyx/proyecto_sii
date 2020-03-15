@@ -24,21 +24,33 @@
                                         <button type="button" @click.prevent="recargar()" class="btn btn-sm btn-primary"> Go!</button> </span></div>
                                 </div>
                             </div>
-                            <proyectos :datos="datos"></proyectos>
-                            <cargando></cargando>
+                            <proyectos   :datos="datos" v-if="datos.load.length >= 1"></proyectos>
+                            <div class="d-flex justify-content-center" v-else>
+                                <div class="ibox-content">
+                                    <div class="spiner-example">
+                                        <div class="sk-spinner sk-spinner-wave">
+                                            <div class="sk-rect1"></div>
+                                            <div class="sk-rect2"></div>
+                                            <div class="sk-rect3"></div>
+                                            <div class="sk-rect4"></div>
+                                            <div class="sk-rect5"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <nuevoproyecto ref="nuevoproyecto"></nuevoproyecto>
+        <nuevoproyecto ref="nuevoproyecto"  v-on:llamarFuncion="recargar"></nuevoproyecto>
     </div>
 </template>
 <script>
 import proyectos from "./proyectos";
-import cargando from "./cargando";
 import datos from "./../data/data";
-import nuevoproyecto from "./../modal/nuevoproyecto"
+import nuevoproyecto from "./../modal/nuevoproyecto";
+import toastr from 'toastr';
 
 export default {
     props:{
@@ -47,41 +59,31 @@ export default {
     data: function(){
         return {
             datos: datos(),
-            showComponent: 'no',
-            showLoading: 'no',
         };
     },
     components: {
         proyectos,
         nuevoproyecto,
-        cargando
     },
     watch: {
-            showComponent (val) {
-                this.showComponent = val;
-            },
-            showLoading (val) {
-                this.showLoading = val;
-            },
     },
     methods:{
         NewProject(){
             let context = this;
-
-            context.$refs.nuevoproyecto.show().then((response) => {
-                
-            });
+            context.$refs.nuevoproyecto.show();
         },
         recargar(){
-            this.showComponent = 'no';
-            this.showLoading = 'si';
-            setTimeout(function(){ 
-                this.showComponent = 'si';
-                this.showLoading = 'no';
-            }, 3000);
-        }
+            this.datos.load = [];
+            axios.post('/proyecto/ajax_get_proyecto').then((response) => {
+                this.datos.proyectos = response.data.proyectos;
+                this.datos.load = response.data.load;
+            }).catch((error) => {
+
+            });           
+        },
     },
     mounted() {
+        this.showLoading = false;
         this.recargar();
     },
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use  App\modulos\proyectos\models\proyecto;
 
 class proyectosController extends Controller
 {
@@ -13,7 +15,21 @@ class proyectosController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $response = [
+                    'proyectos' =>  (new proyecto())->where('user_id', $user->id)->get()->map(function (proyecto $proyecto){
+                                        return ['fecha' => $proyecto->created_at->format('d/m/Y'),
+                                                'tareas' => '50',
+                                                'tareas_completadas'=> '30',
+                                                'id' => $proyecto->id,
+                                                'nombre' => $proyecto->nombre,
+                                                'descripcion' => $proyecto->descripcion,
+                                                'estado' => $proyecto->estado,
+                                            ];
+                                    })->toArray(),
+                    'load' => [['tiene_datos' => 1]]                
+                ];       
+        return response()->json($response, 200);
     }
 
     /**
@@ -21,9 +37,9 @@ class proyectosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+            //..
     }
 
     /**
@@ -34,7 +50,22 @@ class proyectosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        try {
+            proyecto::create([
+                    'nombre' => !empty($request->post('nombre')) ? $request->post('nombre') : '',
+                    'descripcion' => !empty($request->post('descripcion')) ? $request->post('descripcion') : '',
+                    'cantidad_personas' => !empty($request->post('cantidad_personas')) ? $request->post('cantidad_personas') : '',
+                    'user_id' => $user->id,
+                    'estado' => 'activo'
+            ]);
+        } catch (\Exception $e) {
+            throw new \Exception("Ah ocurrido un error");
+        }
+        $response = [
+                'message' => "Se a creado el proyecto con exito"
+        ];
+        return response()->json($response, 200);
     }
 
     /**
