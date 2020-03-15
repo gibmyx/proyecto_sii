@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use  App\modulos\proyectos\models\proyecto;
+use App\modulos\proyectos\models\proyecto;
+use App\modulos\proyectos\servicios\guardarProyecto;
 
 class proyectosController extends Controller
 {
@@ -63,13 +64,15 @@ class proyectosController extends Controller
     {
         $user = Auth::user();
         try {
-            proyecto::create([
+            $params = [
+                    'id' => '',
                     'nombre' => !empty($request->post('nombre')) ? $request->post('nombre') : '',
                     'descripcion' => !empty($request->post('descripcion')) ? $request->post('descripcion') : '',
                     'cantidad_personas' => !empty($request->post('cantidad_personas')) ? $request->post('cantidad_personas') : '',
                     'user_id' => $user->id,
                     'estado' => 'activo'
-            ]);
+            ];
+            $object = (new guardarProyecto())->save($params);
         } catch (\Exception $e) {
             throw new \Exception("Ah ocurrido un error");
         }

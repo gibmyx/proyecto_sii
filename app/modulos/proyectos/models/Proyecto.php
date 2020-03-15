@@ -3,6 +3,7 @@
 namespace App\modulos\proyectos\models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\modulos\proyectos\observer\proyectoCreateObserve;
 
 class Proyecto extends Model
 {
@@ -15,4 +16,10 @@ class Proyecto extends Model
         'cantidad_personas',
         'estado',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        self::observe(proyectoCreateObserve::class);
+    }
 }
