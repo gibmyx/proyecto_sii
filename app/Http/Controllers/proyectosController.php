@@ -72,7 +72,7 @@ class proyectosController extends Controller
                     'user_id' => $user->id,
                     'estado' => 'activo'
             ];
-            $object = (new guardarProyecto())->save($params);
+            (new guardarProyecto())->save($params);
         } catch (\Exception $e) {
             throw new \Exception("Ah ocurrido un error");
         }

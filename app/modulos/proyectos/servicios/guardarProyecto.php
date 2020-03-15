@@ -15,11 +15,11 @@ class guardarProyecto extends guardar
     public function create($params)
     { 
         
-        return proyecto::saved([$params]);        
+        proyecto::create($params);        
     }
 
     public function update($params)
     {
-        return '';
+        //..
     }
 }

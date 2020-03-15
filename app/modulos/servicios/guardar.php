@@ -16,17 +16,17 @@ class guardar
     public function save($params = [])
     {
         if(isset($params['id']) && !empty($params['id'])){
-             return $this->update($params);
+             $this->update($params);
         }
 
-        return $this->create($params);
+        $this->create($params);
     }
 
     public function create($params){
-        return $params;
+        $params;
     }
 
     public function update($params){
-        return $params;
+        $params;
     }
 }
