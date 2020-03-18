@@ -2938,7 +2938,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      datos: Object(_data_data__WEBPACK_IMPORTED_MODULE_1__["default"])()
+      datos: Object(_data_data__WEBPACK_IMPORTED_MODULE_1__["default"])(),
+      buscar: ''
     };
   },
   components: {
@@ -2955,7 +2956,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.datos.load = [];
-      axios.post('/proyecto/ajax_get_proyecto').then(function (response) {
+      var formData = new FormData();
+      formData.append("nombre", this.buscar);
+      axios.post('/proyecto/ajax_get_proyecto', formData).then(function (response) {
         _this.datos.proyectos = response.data.proyectos;
         _this.datos.load = response.data.load;
       })["catch"](function (error) {});
@@ -3001,7 +3004,8 @@ __webpack_require__.r(__webpack_exports__);
         nombre: '',
         apellido: '',
         sex: '',
-        profile: ''
+        profile: '',
+        user_id: ''
       }
     };
   },
@@ -3023,6 +3027,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.data.apellido = response.data.data.apellido;
         _this.data.sex = response.data.data.sex;
         _this.data.profile = response.data.data.profile;
+        _this.data.user_id = response.data.data.user_id;
       })["catch"](function (error) {});
     }
   }
@@ -3073,9 +3078,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "proyecto",
-  props: ['o'],
+  props: {
+    data: Object,
+    o: Object
+  },
   data: function data() {
     return {};
   },
@@ -3085,9 +3100,24 @@ __webpack_require__.r(__webpack_exports__);
     ver_proyecto: function ver_proyecto() {
       window.location.href = "/proyecto?id=" + this.o.id;
     },
-    DespDrop: function DespDrop() {
-      var drop = document.querySelector('#dropDown_des' + this.o.id);
+    DespDropCreador: function DespDropCreador() {
+      var dropCreador = document.querySelector('#dropDown_desCreador' + this.o.id);
+      dropCreador.style.display = dropCreador.style.display === 'none' ? 'block' : 'none';
+    },
+    DespDropOtros: function DespDropOtros() {
+      var drop = document.querySelector('#dropDown_desOtros' + this.o.id);
       drop.style.display = drop.style.display === 'none' ? 'block' : 'none';
+    },
+    abandonarProyecto: function abandonarProyecto() {
+      var _this = this;
+
+      var formData = new FormData();
+      formData.append("user_id", this.data.user_id);
+      formData.append("proyecto_id", this.o.proyecto_id);
+      axios.post('/proyecto/ajax_get_proyecto', formData).then(function (response) {
+        _this.datos.proyectos = response.data.proyectos;
+        _this.datos.load = response.data.load;
+      })["catch"](function (error) {});
     }
   },
   computed: {}
@@ -3138,11 +3168,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    datos: Object
+    datos: Object,
+    data: Object
   },
   data: function data() {
     return {};
@@ -8353,7 +8385,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.dropdownAutomovilEspc{\n    position: relative;\n}\n.dropdownAutomovilEspc-content {\n    border: medium none;\n    border-radius: 3px;\n    box-shadow: 0 0 3px rgba(86, 96, 117, 0.7);\n    float: left;\n    font-size: 12px;\n    list-style: none outside none;\n    position: absolute;\n    text-shadow: none;\n    top: 91%;\n    left: -252px;\n    z-index: 1000;\n    background-color: white;\n    width: 300px;\n    padding: 3px;\n}\n.list-item{\n    margin: 5px 5px 5px 10px\n}\n.list-item a {\n    font-family: \"open sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    color: #676a6c;\n}\n", ""]);
+exports.push([module.i, "\n.dropdownAutomovilEspc{\n    position: relative;\n}\n.dropdownAutomovilEspc-content {\n    border: medium none;\n    border-radius: 3px;\n    box-shadow: 0 0 3px rgba(86, 96, 117, 0.7);\n    float: left;\n    font-size: 12px;\n    list-style: none outside none;\n    position: absolute;\n    text-shadow: none;\n    top: 91%;\n    left: -252px;\n    z-index: 1000;\n    background-color: white;\n    width: 200px;\n    padding: 3px;\n}\n.list-item{\n    margin: 5px 5px 5px 10px\n}\n.list-item a {\n    font-family: \"open sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    color: #676a6c;\n}\n", ""]);
 
 // exports
 
@@ -42684,8 +42716,25 @@ var render = function() {
                     _c("div", { staticClass: "col-md-12" }, [
                       _c("div", { staticClass: "input-group" }, [
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.buscar,
+                              expression: "buscar"
+                            }
+                          ],
                           staticClass: "form-control-sm form-control",
-                          attrs: { type: "text", placeholder: "Search" }
+                          attrs: { type: "text", placeholder: "Search" },
+                          domProps: { value: _vm.buscar },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.buscar = $event.target.value
+                            }
+                          }
                         }),
                         _vm._v(" "),
                         _c("span", { staticClass: "input-group-btn" }, [
@@ -42709,7 +42758,9 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm.datos.load.length >= 1
-                    ? _c("proyectos", { attrs: { datos: _vm.datos } })
+                    ? _c("proyectos", {
+                        attrs: { datos: _vm.datos, data: _vm.data }
+                      })
                     : _c(
                         "div",
                         { staticClass: "d-flex justify-content-center" },
@@ -42855,7 +42906,15 @@ var render = function() {
       _vm._m(0)
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _c("td", { staticClass: "project-people" }, [
+      _c("small", [_vm._v("Integrantes")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex justify-content-center" }, [
+        _c("span", { staticClass: "badge badge-pill badge-primary" }, [
+          _vm._v(_vm._s(_vm.o.miembros) + "/" + _vm._s(_vm.o.cantidad_personas))
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("td", { staticClass: "project-people" }, [
       _c(
@@ -42868,33 +42927,80 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("td", { staticClass: "project-actions dropdownAutomovilEspc" }, [
-      _c(
-        "a",
-        {
-          staticClass:
-            "btn btn-white btn-sm dropdown-toggle btn-default btn-block",
-          attrs: { href: "#" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.DespDrop($event)
-            }
-          }
-        },
-        [_c("i", { staticClass: "fa fa-pencil" }), _vm._v(" Edit ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "ul",
-        {
-          staticClass: "dropdownAutomovilEspc-content",
-          staticStyle: { display: "none" },
-          attrs: { id: "dropDown_des" + _vm.o.id }
-        },
-        [_vm._m(2), _vm._v(" "), _vm._m(3)]
-      )
-    ])
+    _vm.o.user_id == _vm.data.user_id
+      ? _c("td", { staticClass: "project-actions dropdownAutomovilEspc" }, [
+          _c(
+            "a",
+            {
+              staticClass:
+                "btn btn-white btn-sm dropdown-toggle btn-default btn-block",
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.DespDropCreador($event)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-pencil" }), _vm._v(" Edit ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "ul",
+            {
+              staticClass: "dropdownAutomovilEspc-content",
+              staticStyle: { display: "none" },
+              attrs: { id: "dropDown_desCreador" + _vm.o.id }
+            },
+            [_vm._m(1), _vm._v(" "), _vm._m(2)]
+          )
+        ])
+      : _c("td", { staticClass: "project-actions dropdownAutomovilEspc" }, [
+          _c(
+            "a",
+            {
+              staticClass:
+                "btn btn-white btn-sm dropdown-toggle btn-default btn-block",
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.DespDropOtros($event)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-pencil" }), _vm._v(" Edit ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "ul",
+            {
+              staticClass: "dropdownAutomovilEspc-content",
+              staticStyle: { display: "none" },
+              attrs: { id: "dropDown_desOtros" + _vm.o.id }
+            },
+            [
+              _c("li", { staticClass: "list-item" }, [
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.abandonarProyecto()
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "fa fa-download" }),
+                    _vm._v(" Abandonar Proyecto")
+                  ]
+                )
+              ])
+            ]
+          )
+        ])
   ])
 }
 var staticRenderFns = [
@@ -42910,37 +43016,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "project-people" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("img", {
-          staticClass: "rounded-circle",
-          attrs: { alt: "image", src: "img/a7.jpg" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("img", {
-          staticClass: "rounded-circle",
-          attrs: { alt: "image", src: "img/a6.jpg" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("img", {
-          staticClass: "rounded-circle",
-          attrs: { alt: "image", src: "img/a3.jpg" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "list-item" }, [
-      _c("a", { attrs: { href: "#", id: "descargarPlantilla" } }, [
+      _c("a", { attrs: { href: "#" } }, [
         _c("i", { staticClass: "fa fa-download" }),
-        _vm._v(" Opciones")
+        _vm._v(" Opciones para el creador")
       ])
     ])
   },
@@ -42949,9 +43028,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", { staticClass: "list-item" }, [
-      _c("a", { attrs: { href: "#", id: "importarDocumento" } }, [
+      _c("a", { attrs: { href: "#" } }, [
         _c("i", { staticClass: "fa fa-upload" }),
-        _vm._v("Opcioness")
+        _vm._v(" Opciones para el creador")
       ])
     ])
   }
@@ -42983,7 +43062,10 @@ var render = function() {
         ? _c(
             "tbody",
             _vm._l(_vm.datos.proyectos, function(o) {
-              return _c("proyecto", { tag: "tr", attrs: { o: o } })
+              return _c("proyecto", {
+                tag: "tr",
+                attrs: { o: o, data: _vm.data }
+              })
             }),
             1
           )

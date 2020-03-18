@@ -15,18 +15,25 @@
             </div>
         </td>
         <td class="project-people">
-            <a href="#"><img alt="image" class="rounded-circle" src="img/a7.jpg"></a>
-            <a href="#"><img alt="image" class="rounded-circle" src="img/a6.jpg"></a>
-            <a href="#"><img alt="image" class="rounded-circle" src="img/a3.jpg"></a>
+           <small>Integrantes</small>
+           <div class="d-flex justify-content-center">
+                <span class="badge badge-pill badge-primary">{{o.miembros}}/{{o.cantidad_personas}}</span>
+            </div>
         </td>
         <td class="project-people">
              <a :href="'/proyecto?id='+this.o.id" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
         </td>
-        <td class="project-actions dropdownAutomovilEspc">
-            <a href="#"  @click.prevent="DespDrop" class="btn btn-white btn-sm dropdown-toggle btn-default btn-block"><i class="fa fa-pencil"></i> Edit </a>
-            <ul :id="'dropDown_des'+o.id" class="dropdownAutomovilEspc-content" style="display: none;">
-                <li class="list-item"><a href="#" id="descargarPlantilla"><i class="fa fa-download"></i> Opciones</a></li>
-                <li class="list-item"><a href="#" id="importarDocumento" ><i class="fa fa-upload"></i>Opcioness</a></li>
+        <td class="project-actions dropdownAutomovilEspc" v-if="o.user_id == data.user_id" >
+            <a href="#"  @click.prevent="DespDropCreador" class="btn btn-white btn-sm dropdown-toggle btn-default btn-block"><i class="fa fa-pencil"></i> Edit </a>
+            <ul :id="'dropDown_desCreador'+o.id" class="dropdownAutomovilEspc-content" style="display: none;">
+                <li class="list-item"><a href="#"><i class="fa fa-download"></i> Opciones para el creador</a></li>
+                <li class="list-item"><a href="#"><i class="fa fa-upload"></i> Opciones para el creador</a></li>
+            </ul>
+        </td>
+        <td class="project-actions dropdownAutomovilEspc"  v-else  >
+            <a href="#"  @click.prevent="DespDropOtros" class="btn btn-white btn-sm dropdown-toggle btn-default btn-block"><i class="fa fa-pencil"></i> Edit </a>
+            <ul :id="'dropDown_desOtros'+o.id" class="dropdownAutomovilEspc-content" style="display: none;">
+                <li class="list-item"><a href="#" @click.prevent="abandonarProyecto()"><i class="fa fa-download"></i> Abandonar Proyecto</a></li>
             </ul>
         </td>
     </tr>
@@ -38,7 +45,10 @@
     export default {
         name: "proyecto",
 
-        props: ['o'],
+        props:{
+            data: Object,
+            o: Object,
+        },
         data:function(){
             return {
             };
@@ -51,9 +61,24 @@
             ver_proyecto: function(){
                 window.location.href = "/proyecto?id="+this.o.id
             },
-             DespDrop(){
-                let drop  = document.querySelector('#dropDown_des'+this.o.id);
+            DespDropCreador(){
+                let dropCreador  = document.querySelector('#dropDown_desCreador'+this.o.id);
+                dropCreador.style.display = dropCreador.style.display === 'none' ? 'block' : 'none';
+            },
+            DespDropOtros(){
+                let drop  = document.querySelector('#dropDown_desOtros'+this.o.id);
                 drop.style.display = drop.style.display === 'none' ? 'block' : 'none';
+            },
+            abandonarProyecto(){
+                let formData = new FormData();
+                formData.append("user_id", this.data.user_id);
+                formData.append("proyecto_id", this.o.proyecto_id);
+                axios.post('/proyecto/ajax_get_proyecto', formData).then((response) => {
+                    this.datos.proyectos = response.data.proyectos;
+                    this.datos.load = response.data.load;
+                }).catch((error) => {
+
+                }); 
             },
         },
         computed: {
@@ -78,7 +103,7 @@
         left: -252px;
         z-index: 1000;
         background-color: white;
-        width: 300px;
+        width: 200px;
         padding: 3px;
     }
 

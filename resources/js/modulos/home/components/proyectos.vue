@@ -5,7 +5,8 @@
                 <tr 
                     v-bind:is="'proyecto'" 
                     v-for="o in datos.proyectos" 
-                    :o="o" >
+                    :o="o" :data="data"
+                    >
                 </tr>
             </tbody>
 
@@ -36,6 +37,7 @@
     export default {
         props:{
             datos: Object,
+            data: Object,
         },
         data:function(){
             return {

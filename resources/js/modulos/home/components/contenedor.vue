@@ -20,11 +20,11 @@
                         <div class="ibox-content">
                             <div class="row m-b-sm m-t-sm">
                                 <div class="col-md-12">
-                                    <div class="input-group"><input type="text" placeholder="Search" class="form-control-sm form-control"> <span class="input-group-btn">
+                                    <div class="input-group"><input type="text" placeholder="Search" class="form-control-sm form-control" v-model="buscar"> <span class="input-group-btn">
                                         <button type="button" @click.prevent="recargar()" class="btn btn-sm btn-primary"> Go!</button> </span></div>
                                 </div>
                             </div>
-                            <proyectos   :datos="datos" v-if="datos.load.length >= 1"></proyectos>
+                            <proyectos   :datos="datos" :data="data" v-if="datos.load.length >= 1"></proyectos>
                             <div class="d-flex justify-content-center" v-else>
                                 <div class="ibox-content">
                                     <div class="spiner-example">
@@ -59,6 +59,7 @@ export default {
     data: function(){
         return {
             datos: datos(),
+            buscar: '',
         };
     },
     components: {
@@ -74,7 +75,10 @@ export default {
         },
         recargar(){
             this.datos.load = [];
-            axios.post('/proyecto/ajax_get_proyecto').then((response) => {
+             let formData = new FormData();
+                    
+            formData.append("nombre", this.buscar);
+            axios.post('/proyecto/ajax_get_proyecto', formData).then((response) => {
                 this.datos.proyectos = response.data.proyectos;
                 this.datos.load = response.data.load;
             }).catch((error) => {
