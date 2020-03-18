@@ -19,9 +19,10 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('home', require('./modulos/home/components/home.vue').default);
 Vue.component('dashboard', require('./modulos/dashboard/components/home.vue').default);
+Vue.component('correo', require('./modulos/correo/components/home.vue').default);
+Vue.component('proyecto', require('./modulos/proyecto/components/home.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

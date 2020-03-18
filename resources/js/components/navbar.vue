@@ -106,7 +106,7 @@
 
 
                         <li>
-                            <a href="login.html">
+                            <a class="dropdown-item" href="#" v-on:click.prevent="logout()">
                                 <i class="fa fa-sign-out"></i> Log out
                             </a>
                         </li>
@@ -118,6 +118,11 @@
 export default {
     mounted() {
     },
+    methods: {
+        logout(){                                        
+            document.getElementById('logout-form').submit();
+        }
+    }
 }
 </script>
 <style>

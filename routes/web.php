@@ -14,9 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/vue', 'Vue@index');
+
 Auth::routes();
 
+
+Route::get('/vue', 'Vue@index');
 
 //CONTROLLADOR HOME
 Route::post('/ajax_get_detalle', 'HomeController@ajax_get_detalle');
@@ -24,4 +26,16 @@ Route::resource("home", "HomeController");
 
 
 //CONTROLADOR DASHBOARD
-Route::resource('/dashboard', 'dashboardController@index');
+Route::resource('/dashboard', 'dashboardController');
+
+
+//CONTROLLER CORREO
+Route::resource('/correo', 'correoController');
+Route::get('/correo/crear', 'correoController@crear');
+Route::get('/correo/ver', 'correoController@ver');
+
+
+//CONTROLLADOR PROYECTO
+Route::resource('/proyecto', 'proyectosController');
+Route::post('/proyecto/ajax_get_proyecto', 'proyectosController@ajax_get_proyecto');
+Route::post('/proyecto/store', 'proyectosController@store');

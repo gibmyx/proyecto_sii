@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-class HomeController extends Controller
+class correoController extends Controller
 {
+   
     protected $session;
     protected $user;
     
@@ -21,31 +21,37 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {               
-        return view('home');
+    public function index()
+    {
+        if(Auth::check()){
+            return view('correo');
+        }else{
+            return redirect('/');
+        }
     }
 
-    public function ajax_get_detalle()
+    public function crear()
     {
-        $user = Auth::user();
-        $response = [
-            'code' => 201,
-            'data' =>  ['usuario' =>  $user->name,
-                        "apellido" => $user->last,
-                        'email' => $user->email,
-                        'user_id' => $user->id,
-                        "profile" => $user->profile,
-                        "sex" => $user->sex,
-                        ]
-                    ];
-        return response()->json($response, 200);
+        if(Auth::check()){
+            return view('correo_crear');
+        }else{
+            return redirect('/');
+        }
     }
-    
+
+    public function ver()
+    {
+        if(Auth::check()){
+            return view('correo_ver');
+        }else{
+            return redirect('/');
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

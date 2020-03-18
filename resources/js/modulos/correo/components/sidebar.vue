@@ -17,11 +17,11 @@
                     <a href="home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
                 </li>
 
-                <li class="active">
+                <li>
                     <a href="dashboard"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
                 </li>
                 
-                <li>
+                <li class="active">
                     <a href="correo"><i class="fa fa-pie-chart"></i> <span class="nav-label">Correo</span>  </a>
                 </li>
                 <li>
