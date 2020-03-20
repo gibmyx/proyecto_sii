@@ -1,7 +1,7 @@
 <template>
     <div>
     <div class="row  border-bottom white-bg dashboard-header">
-            
+
             <div class="col-md-4">
                 <h2>Ver proyecto</h2>
             </div>
@@ -107,7 +107,6 @@ import detalle from './../modal/detalle';
 export default {
     mounted() {
         this.cargarProyecto();
-        jquery();
     },
     components: {
         detalle,
@@ -115,9 +114,9 @@ export default {
     methods: {
         cargarProyecto(){
             let urlParams = new URLSearchParams(window.location.search);
-            console.log(urlParams.get('id'));
-        },  
-        
+            console.log(urlParams.get('proyecto_id'));
+        },
+
         ver_task(){
             let context = this;
             context.$refs.detalle.show();

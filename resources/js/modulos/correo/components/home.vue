@@ -14,16 +14,15 @@
     import contenedor from "./contenedor";
 
     export default {
-        data:function(){
+        data: function () {
             return {
                 data: {
                     nombre: '',
                     apellido: '',
                     sex: '',
                     profile: '',
+                    user_id: '',
                 }
-                
-                
             };
         },
         mounted() {
@@ -35,17 +34,16 @@
             contenedor
         },
         methods: {
-             ajax_detalle() {
+            ajax_detalle() {
                 let formData = new FormData();
                 axios.post('/ajax_get_detalle').then((response) => {
                     this.data.nombre = response.data.data.usuario;
                     this.data.apellido = response.data.data.apellido;
                     this.data.sex = response.data.data.sex;
                     this.data.profile = response.data.data.profile;
+                    this.data.user_id = response.data.data.user_id;
                 }).catch((error) => {
-
                 });
-                
             },
         }
     }

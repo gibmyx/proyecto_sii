@@ -6,7 +6,7 @@
                     <div class="profile-element profile">
                         <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'hombre'" height="60px" width="60px" alt="image" class="rounded-circle" src="img/profile/perfil-hombre-default.jpg"/>
                         <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'mujer'"  height="60px" width="60px" alt="image" class="rounded-circle" src="img/profile/perfil-mujer-default.jpg"/>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <a data-toggle="dropdown" class="dropdown-toggle" :href="'dashboard?user_id='+data.user_id">
                             <span class="block m-t-xs font-bold">{{data.nombre}} {{data.apellido}}</span>
                             <span class="text-muted text-xs block">Programador BackEnd</span>
                         </a>
@@ -16,16 +16,16 @@
                 <li class="active">
                     <a href="home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="index-2.html">Dashboard v.1</a></li>
-                        <li class="active"><a href="dashboard_2.html">Dashboard v.2</a></li>
-                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
-                        <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
-                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
+                        <li class="active"><a :href="'/proyecto?proyecto_id='+this.proyecto_id">>Ver proyecto</a></li>
+                        <li><a href="#">Miembros</a></li>
+                        <li><a href="#">Dashboard v.3</a></li>
+                        <li><a href="#">Dashboard v.4</a></li>
+                        <li><a href="#">Dashboard v.5 </a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="dashboard"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
+                    <a :href="'dashboard?user_id='+data.user_id"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
                 </li>
 
                 <li>
@@ -47,13 +47,17 @@ export default {
         data: Object,
     },
     data:function(){
-        return {};
+        return {
+            proyecto_id: ''
+        };
     },
     components: {
 	},
     methods:{
     },
     mounted() {
+        let urlParams = new URLSearchParams(window.location.search);
+        this.proyecto_id = urlParams.get('proyecto_id');
     },
 }
 </script>

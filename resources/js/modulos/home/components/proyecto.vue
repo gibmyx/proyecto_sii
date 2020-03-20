@@ -4,12 +4,12 @@
             <span class="label label-primary">{{o.estado}}</span>
         </td>
         <td class="project-title">
-            <a :href="'/proyecto?id='+this.o.id">{{o.nombre}}</a>
+            <a :href="'/proyecto?proyecto_id='+this.o.id">{{o.nombre}}</a>
             <br/>
             <small>{{o.fecha}}</small>
         </td>
         <td class="project-completion">
-            <small>Completion with: 28%: {{url_proyecto}}</small>
+            <small>Completion with: 28%: </small>
             <div class="progress progress-mini">
                 <div style="width: 28%;" class="progress-bar"></div>
             </div>
@@ -78,7 +78,7 @@
                     this.datos.load = response.data.load;
                 }).catch((error) => {
 
-                }); 
+                });
             },
         },
         computed: {
