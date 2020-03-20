@@ -12,15 +12,22 @@
                         </a>
                     </div>
                 </li>
-                
+
                 <li class="active">
                     <a href="home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="index-2.html">Dashboard v.1</a></li>
+                        <li class="active"><a href="dashboard_2.html">Dashboard v.2</a></li>
+                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
+                        <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
+                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
+                    </ul>
                 </li>
 
                 <li>
                     <a href="dashboard"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
                 </li>
-                
+
                 <li>
                     <a href="correo"><i class="fa fa-pie-chart"></i> <span class="nav-label">Correo</span>  </a>
                 </li>
@@ -66,7 +73,7 @@ export default {
         background-color: #2f4050;
         height: 100%;
     }
-    
+
     .profile a{
         text-decoration: none;
     }

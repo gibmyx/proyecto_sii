@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\modulos\proyectos\models\proyecto;
+use App\modulos\proyectos\models\Proyecto;
 use App\modulos\proyectos\servicios\guardarProyecto;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -31,9 +31,9 @@ class proyectosController extends Controller
         $user = Auth::user();
         $params = $request->post();
 
-        $proyectos = (new proyecto())->whereHas('miembros', function (Builder $query) use($user) {
+        $proyectos = (new Proyecto())->whereHas('miembros', function (Builder $query) use($user) {
             $query->where('user_id', $user->id);
-        })->Nombre($params)->orderBy('id', 'desc')->get()->map(function (proyecto $proyecto){
+        })->Nombre($params)->orderBy('id', 'desc')->get()->map(function (Proyecto $proyecto){
             return ['fecha' => $proyecto->created_at->format('d/m/Y h:m:s'),
                     'cantidad_personas' => $proyecto->cantidad_personas,
                     'miembros' => $proyecto->miembros->count(),
@@ -48,8 +48,8 @@ class proyectosController extends Controller
 
         $response = [
                     'proyectos' =>  $proyectos,
-                    'load' => [['tiene_datos' => 1]]                
-                ];       
+                    'load' => [['tiene_datos' => 1]]
+                ];
         return response()->json($response, 200);
     }
 
