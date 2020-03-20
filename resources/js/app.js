@@ -23,11 +23,13 @@ Vue.component('home', require('./modulos/home/components/home.vue').default);
 Vue.component('dashboard', require('./modulos/dashboard/components/home.vue').default);
 Vue.component('correo', require('./modulos/correo/components/home.vue').default);
 Vue.component('proyecto', require('./modulos/proyecto/components/home.vue').default);
+Vue.component('miembros', require('./modulos/miembros/components/home.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
 
 const app = new Vue({
     el: '#app',

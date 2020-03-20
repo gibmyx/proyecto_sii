@@ -36,6 +36,8 @@ Route::get('/correo/ver', 'correoController@ver');
 
 
 //CONTROLLADOR PROYECTO
-Route::resource('/proyecto', 'proyectosController');
+//Route::resource('/proyecto', 'proyectosController');
+Route::get('/proyecto', 'proyectosController@index');
 Route::post('/proyecto/ajax_get_proyecto', 'proyectosController@ajax_get_proyecto');
 Route::post('/proyecto/store', 'proyectosController@store');
+Route::get('/proyecto/miembros', 'proyectosController@miembros');

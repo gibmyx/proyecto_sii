@@ -24,6 +24,15 @@ class proyectosController extends Controller
         }
     }
 
+    public function miembros()
+    {
+        if(Auth::check()){
+            return view('miembros');
+        }else{
+            return redirect('/');
+        }
+    }
+
 
 
     public function ajax_get_proyecto(Request $request)
