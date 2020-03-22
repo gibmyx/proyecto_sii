@@ -1,7 +1,7 @@
 <template>
     <div>
     <div class="row  border-bottom white-bg dashboard-header">
-            
+
             <div class="col-md-4">
                 <h2>Dashboard</h2>
             </div>
@@ -67,7 +67,7 @@
                 <div class="col-md-6">
 
                     <div class="profile-image">
-                        <img src="img/a4.jpg" class="rounded-circle circle-border m-b-md" alt="profile">
+                        <img src="/img/a4.jpg" class="rounded-circle circle-border m-b-md" alt="profile">
                     </div>
                     <div class="profile-info">
                         <div class="">
@@ -124,16 +124,16 @@
                                 anything embarrassing
                             </p>
                             <div class="user-friends">
-                                <a href="#"><img alt="image" class="rounded-circle" src="img/a3.jpg"></a>
-                                <a href="#"><img alt="image" class="rounded-circle" src="img/a1.jpg"></a>
-                                <a href="#"><img alt="image" class="rounded-circle" src="img/a2.jpg"></a>
-                                <a href="#"><img alt="image" class="rounded-circle" src="img/a4.jpg"></a>
-                                <a href="#"><img alt="image" class="rounded-circle" src="img/a5.jpg"></a>
-                                <a href="#"><img alt="image" class="rounded-circle" src="img/a6.jpg"></a>
-                                <a href="#"><img alt="image" class="rounded-circle" src="img/a7.jpg"></a>
-                                <a href="#"><img alt="image" class="rounded-circle" src="img/a8.jpg"></a>
-                                <a href="#"><img alt="image" class="rounded-circle" src="img/a2.jpg"></a>
-                                <a href="#"><img alt="image" class="rounded-circle" src="img/a1.jpg"></a>
+                                <a href="#"><img alt="image" class="rounded-circle" src="/img/a3.jpg"></a>
+                                <a href="#"><img alt="image" class="rounded-circle" src="/img/a1.jpg"></a>
+                                <a href="#"><img alt="image" class="rounded-circle" src="/img/a2.jpg"></a>
+                                <a href="#"><img alt="image" class="rounded-circle" src="/img/a4.jpg"></a>
+                                <a href="#"><img alt="image" class="rounded-circle" src="/img/a5.jpg"></a>
+                                <a href="#"><img alt="image" class="rounded-circle" src="/img/a6.jpg"></a>
+                                <a href="#"><img alt="image" class="rounded-circle" src="/img/a7.jpg"></a>
+                                <a href="#"><img alt="image" class="rounded-circle" src="/img/a8.jpg"></a>
+                                <a href="#"><img alt="image" class="rounded-circle" src="/img/a2.jpg"></a>
+                                <a href="#"><img alt="image" class="rounded-circle" src="/img/a1.jpg"></a>
                             </div>
                         </div>
                     </div>

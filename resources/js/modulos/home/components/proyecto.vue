@@ -4,7 +4,7 @@
             <span class="label label-primary">{{o.estado}}</span>
         </td>
         <td class="project-title">
-            <a :href="'/proyecto?proyecto_id='+this.o.id">{{o.nombre}}</a>
+            <a :href="'/proyecto/'+this.o.id">{{o.nombre}}</a>
             <br/>
             <small>{{o.fecha}}</small>
         </td>
@@ -21,7 +21,7 @@
             </div>
         </td>
         <td class="project-people">
-             <a :href="'/proyecto?id='+this.o.id" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
+             <a :href="'/proyecto/'+this.o.id" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
         </td>
         <td class="project-actions dropdownAutomovilEspc" v-if="o.user_id == data.user_id" >
             <a href="#"  @click.prevent="DespDropCreador" class="btn btn-white btn-sm dropdown-toggle btn-default btn-block"><i class="fa fa-pencil"></i> Edit </a>

@@ -4,9 +4,9 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="profile-element profile">
-                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'hombre'" height="60px" width="60px" alt="image" class="rounded-circle" src="img/profile/perfil-hombre-default.jpg"/>
-                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'mujer'"  height="60px" width="60px" alt="image" class="rounded-circle" src="img/profile/perfil-mujer-default.jpg"/>
-                        <a data-toggle="dropdown" class="dropdown-toggle" :href="'dashboard?user_id='+data.user_id">
+                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'hombre'" height="60px" width="60px" alt="image" class="rounded-circle" src="/img/profile/perfil-hombre-default.jpg"/>
+                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'mujer'"  height="60px" width="60px" alt="image" class="rounded-circle" src="/img/profile/perfil-mujer-default.jpg"/>
+                        <a data-toggle="dropdown" class="dropdown-toggle" :href="'/dashboard/'+data.user_id">
                             <span class="block m-t-xs font-bold">{{data.nombre}} {{data.apellido}}</span>
                             <span class="text-muted text-xs block">Programador BackEnd</span>
                         </a>
@@ -14,15 +14,15 @@
                 </li>
 
                 <li>
-                    <a href="home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
+                    <a href="/home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
                 </li>
 
                 <li class="active">
-                    <a :href="'dashboard?user_id='+data.user_id"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
+                    <a :href="'/dashboard/'+data.user_id"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
                 </li>
 
                 <li>
-                    <a href="correo"><i class="fa fa-pie-chart"></i> <span class="nav-label">Correo</span>  </a>
+                    <a href="/correo"><i class="fa fa-pie-chart"></i> <span class="nav-label">Correo</span>  </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>

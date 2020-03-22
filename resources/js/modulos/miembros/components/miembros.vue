@@ -5,7 +5,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a2.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a2.jpg">
                             <div class="m-t-xs font-bold">Graphics designer</div>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a1.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a1.jpg">
                             <div class="m-t-xs font-bold">CEO</div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a3.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a3.jpg">
                             <div class="m-t-xs font-bold">Marketing manager</div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a4.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a4.jpg">
                             <div class="m-t-xs font-bold">Sales manager</div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a5.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a5.jpg">
                             <div class="m-t-xs font-bold">Graphics designer</div>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a6.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a6.jpg">
                             <div class="m-t-xs font-bold">Graphics designer</div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a1.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a1.jpg">
                             <div class="m-t-xs font-bold">CEO</div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a2.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a2.jpg">
                             <div class="m-t-xs font-bold">Graphics designer</div>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a3.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a3.jpg">
                             <div class="m-t-xs font-bold">Marketing manager</div>
                         </div>
                     </div>
@@ -203,7 +203,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a4.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a4.jpg">
                             <div class="m-t-xs font-bold">Sales manager</div>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a5.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a5.jpg">
                             <div class="m-t-xs font-bold">Graphics designer</div>
                         </div>
                     </div>
@@ -247,7 +247,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a6.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a6.jpg">
                             <div class="m-t-xs font-bold">Graphics designer</div>
                         </div>
                     </div>
@@ -269,7 +269,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a1.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a1.jpg">
                             <div class="m-t-xs font-bold">CEO</div>
                         </div>
                     </div>
@@ -291,7 +291,7 @@
                 <a class="row" href="profile.html">
                     <div class="col-4">
                         <div class="text-center">
-                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="img/a2.jpg">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="/img/a2.jpg">
                             <div class="m-t-xs font-bold">Graphics designer</div>
                         </div>
                     </div>

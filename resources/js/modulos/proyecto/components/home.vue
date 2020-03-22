@@ -1,6 +1,6 @@
 <template>
     <div id="wrapper">
-        <sidebar :data="data"></sidebar>
+        <sidebar :data="data" :proyecto_id="proyecto_id"></sidebar>
         <div id="page-wrapper" class="gray-bg dashbard-1">
             <navbar></navbar>
             <contenedor></contenedor>
@@ -14,6 +14,7 @@
     import contenedor from "./contenedor";
 
     export default {
+        props: ['proyecto_id'],
         data:function(){
             return {
                 data: {

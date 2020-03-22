@@ -4,9 +4,13 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="profile-element profile">
-                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'hombre'" height="60px" width="60px" alt="image" class="rounded-circle" src="img/profile/perfil-hombre-default.jpg"/>
-                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'mujer'"  height="60px" width="60px" alt="image" class="rounded-circle" src="img/profile/perfil-mujer-default.jpg"/>
-                        <a data-toggle="dropdown" class="dropdown-toggle" :href="'dashboard?user_id='+data.user_id">
+                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'hombre'" height="60px"
+                             width="60px" alt="image" class="rounded-circle"
+                             src="/img/profile/perfil-hombre-default.jpg"/>
+                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'mujer'" height="60px"
+                             width="60px" alt="image" class="rounded-circle"
+                             src="/img/profile/perfil-mujer-default.jpg"/>
+                        <a data-toggle="dropdown" class="dropdown-toggle">
                             <span class="block m-t-xs font-bold">{{data.nombre}} {{data.apellido}}</span>
                             <span class="text-muted text-xs block">Programador BackEnd</span>
                         </a>
@@ -14,19 +18,20 @@
                 </li>
 
                 <li class="active">
-                    <a href="home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
+                    <a href="/home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
                     <ul class="nav nav-second-level">
-                        <li><a :href="'/proyecto?proyecto_id='+this.proyecto_id">Ver proyecto</a></li>
-                        <li class="active"><a :href="'/proyecto/miembros'">Miembros</a></li>
+                        <li><a :href="'/proyecto/'+proyecto_id">Ver proyecto</a></li>
+                        <li class="active"><a :href="'/proyecto/miembros/'+proyecto_id">Miembros</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a :href="'dashboard?user_id='+data.user_id"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
+                    <a :href="'/dashboard/'+data.user_id"><i class="fa fa-diamond"></i> <span
+                        class="nav-label">Perfil</span></a>
                 </li>
 
                 <li>
-                    <a href="correo"><i class="fa fa-pie-chart"></i> <span class="nav-label">Correo</span>  </a>
+                    <a href="correo"><i class="fa fa-pie-chart"></i> <span class="nav-label">Correo</span> </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>
@@ -39,33 +44,28 @@
     </nav>
 </template>
 <script>
-export default {
-    props:{
-        data: Object,
-    },
-    data:function(){
-        return {
-            proyecto_id: ''
-        };
-    },
-    components: {
-	},
-    methods:{
-    },
-    mounted() {
-        let urlParams = new URLSearchParams(window.location.search);
-        this.proyecto_id = urlParams.get('proyecto_id');
-    },
-}
+    export default {
+        props: ['data', 'proyecto_id']
+        ,
+        data: function () {
+            return {
+                proyecto_id: ''
+            };
+        },
+        components: {},
+        methods: {},
+        mounted() {
+        },
+    }
 </script>
 <style>
-    nav .sidebar-collapse  .metismenu li {
+    nav .sidebar-collapse .metismenu li {
         font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 13px;
         color: #676a6c;
     }
 
-    nav .sidebar-collapse  .metismenu {
+    nav .sidebar-collapse .metismenu {
         background-color: transparent;
         border-color: #2f4050;
     }
@@ -75,11 +75,11 @@ export default {
         height: 100%;
     }
 
-    .profile a{
+    .profile a {
         text-decoration: none;
     }
 
-    .profile a:hover{
+    .profile a:hover {
         text-decoration: none;
         color: #ffffff;
     }

@@ -6,11 +6,11 @@
                     <div class="profile-element profile">
                         <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'hombre'" height="60px"
                              width="60px" alt="image" class="rounded-circle"
-                             src="img/profile/perfil-hombre-default.jpg"/>
+                             src="/img/profile/perfil-hombre-default.jpg"/>
                         <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'mujer'" height="60px"
                              width="60px" alt="image" class="rounded-circle"
-                             src="img/profile/perfil-mujer-default.jpg"/>
-                        <a data-toggle="dropdown" class="dropdown-toggle" :href="'dashboard?user_id='+data.user_id">
+                             src="/img/profile/perfil-mujer-default.jpg"/>
+                        <a data-toggle="dropdown" class="dropdown-toggle">
                             <span class="block m-t-xs font-bold">{{data.nombre}} {{data.apellido}}</span>
                             <span class="text-muted text-xs block">Programador BackEnd</span>
                         </a>
@@ -18,15 +18,15 @@
                 </li>
 
                 <li class="active">
-                    <a href="home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
+                    <a href="/home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
                     <ul class="nav nav-second-level">
-                        <li class="active"><a :href="'/proyecto?proyecto_id='+this.proyecto_id">Ver proyecto</a></li>
-                        <li><a :href="'/proyecto/miembros?proyecto_id='+this.proyecto_id">Miembros</a></li>
+                        <li class="active"><a :href="'/proyecto/'+proyecto_id">Ver proyecto</a></li>
+                        <li><a :href="'/proyecto/miembros/'+proyecto_id">Miembros</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a :href="'dashboard?user_id='+data.user_id"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
+                    <a :href="'/dashboard/' + data.user_id"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
                 </li>
 
                 <li>
@@ -44,19 +44,15 @@
 </template>
 <script>
     export default {
-        props: {
-            data: Object,
-        },
+        props: ['data', 'proyecto_id']
+        ,
         data: function () {
             return {
-                proyecto_id: ''
             };
         },
         components: {},
         methods: {},
         mounted() {
-            let urlParams = new URLSearchParams(window.location.search);
-            this.proyecto_id = urlParams.get('proyecto_id');
         },
     }
 </script>

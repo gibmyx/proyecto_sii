@@ -86,13 +86,13 @@ import toastr from 'toastr';
             guardar() {
                 return new Promise((resolve) => {
                     let formData = new FormData();
-                    
+
                     formData.append("nombre", this.nombre);
                     formData.append("descripcion", this.descripcion);
                     formData.append("cantidad_personas", this.cantidad_personas)
                     this.hide();
 
-                    axios.post('proyecto/store',formData ).then((response) => {
+                    axios.post('proyecto/ajax_crear_proyecto',formData ).then((response) => {
                         toastr.success("Se a creado el proyecto");
                         this.nombre = '';
                         this.cantidad_personas = '';

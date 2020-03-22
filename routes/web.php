@@ -11,33 +11,33 @@
 |
 */
 
+//RUTA PARA LA LANDING PAGE
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::get('/vue', 'Vue@index');
 
 Auth::routes();
 
-
-Route::get('/vue', 'Vue@index');
-
 //CONTROLLADOR HOME
 Route::post('/ajax_get_detalle', 'HomeController@ajax_get_detalle');
-Route::resource("home", "HomeController");
+Route::get("home", "HomeController@index");
 
 
 //CONTROLADOR DASHBOARD
-Route::resource('/dashboard', 'dashboardController');
+Route::get('/dashboard/{id}', 'dashboardController@index');
 
 
 //CONTROLLER CORREO
-Route::resource('/correo', 'correoController');
+Route::get('/correo', 'correoController@index');
 Route::get('/correo/crear', 'correoController@crear');
 Route::get('/correo/ver', 'correoController@ver');
 
 
 //CONTROLLADOR PROYECTO
-//Route::resource('/proyecto', 'proyectosController');
-Route::get('/proyecto', 'proyectosController@index');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/proyecto/{id}', 'proyectosController@ver_proyecto');
+    Route::get('/proyecto/miembros/{id}', 'proyectosController@miembros');
+});
 Route::post('/proyecto/ajax_get_proyecto', 'proyectosController@ajax_get_proyecto');
-Route::post('/proyecto/store', 'proyectosController@store');
-Route::get('/proyecto/miembros', 'proyectosController@miembros');
+Route::post('/proyecto/ajax_crear_proyecto', 'proyectosController@ajax_crear_proyecto');
