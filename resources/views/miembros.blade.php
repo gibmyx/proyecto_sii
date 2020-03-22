@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <proyecto proyecto_id="{{$id}}"></proyecto>
+    <miembros proyecto_id="{{$id}}"></miembros>
 @endsection

@@ -1,6 +1,6 @@
 <template>
     <div id="wrapper">
-        <sidebar :data="data"></sidebar>
+        <sidebar :data="data" :proyecto_id="proyecto_id"></sidebar>
         <div id="page-wrapper" class="gray-bg dashbard-1">
             <navbar></navbar>
             <contenedor></contenedor>
@@ -14,7 +14,8 @@
     import contenedor from "./contenedor";
 
     export default {
-        data: function () {
+        props: ['proyecto_id'],
+        data(){
             return {
                 data: {
                     nombre: '',
@@ -23,6 +24,8 @@
                     profile: '',
                     user_id: '',
                 }
+
+
             };
         },
         mounted() {
@@ -34,7 +37,7 @@
             contenedor
         },
         methods: {
-            ajax_detalle() {
+             ajax_detalle() {
                 let formData = new FormData();
                 axios.post('/ajax_get_detalle').then((response) => {
                     this.data.nombre = response.data.data.usuario;
@@ -43,7 +46,9 @@
                     this.data.profile = response.data.data.profile;
                     this.data.user_id = response.data.data.user_id;
                 }).catch((error) => {
+
                 });
+
             },
         }
     }

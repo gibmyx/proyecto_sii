@@ -21,9 +21,10 @@
                     apellido: '',
                     sex: '',
                     profile: '',
+                    user_id: ''
                 }
-                
-                
+
+
             };
         },
         mounted() {
@@ -42,10 +43,11 @@
                     this.data.apellido = response.data.data.apellido;
                     this.data.sex = response.data.data.sex;
                     this.data.profile = response.data.data.profile;
+                    this.data.user_id = response.data.data.user_id;
                 }).catch((error) => {
 
                 });
-                
+
             },
         }
     }

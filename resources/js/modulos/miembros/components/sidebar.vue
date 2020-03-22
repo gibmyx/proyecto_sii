@@ -20,13 +20,14 @@
                 <li class="active">
                     <a href="/home"><i class="fa fa-diamond"></i> <span class="nav-label">Proyectos</span></a>
                     <ul class="nav nav-second-level">
-                        <li class="active"><a :href="'/proyecto/'+proyecto_id">Ver proyecto</a></li>
-                        <li><a :href="'/proyecto/miembros/'+proyecto_id">Miembros</a></li>
+                        <li><a :href="'/proyecto/'+proyecto_id">Ver proyecto</a></li>
+                        <li class="active"><a :href="'/proyecto/miembros/'+proyecto_id">Miembros</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a :href="'/dashboard/' + data.user_id"><i class="fa fa-diamond"></i> <span class="nav-label">Perfil</span></a>
+                    <a :href="'/dashboard/'+data.user_id"><i class="fa fa-diamond"></i> <span
+                        class="nav-label">Perfil</span></a>
                 </li>
 
                 <li>
@@ -48,6 +49,7 @@
         ,
         data: function () {
             return {
+                proyecto_id: ''
             };
         },
         components: {},

@@ -8,7 +8,7 @@
         </div>
 
         <div class="wrapper wrapper-content  animated fadeInRight">
-            <tareas></tareas>
+            <miembros></miembros>
         </div>
 
 <!--        <detalle ref="detalle"></detalle>-->
@@ -16,7 +16,7 @@
 </template>
 <script>
 // import detalle from './../modal/detalle';
-import tareas from './tareas';
+import miembros from './miembros';
 
 export default {
     mounted() {
@@ -24,7 +24,7 @@ export default {
     },
     components: {
         // detalle,
-        tareas,
+        miembros,
     },
     methods: {
         cargarProyecto(){

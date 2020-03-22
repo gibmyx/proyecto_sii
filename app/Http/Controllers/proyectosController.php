@@ -4,24 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\modulos\proyectos\models\proyecto;
+use App\modulos\proyectos\models\Proyecto;
 use App\modulos\proyectos\servicios\guardarProyecto;
 use Illuminate\Database\Eloquent\Builder;
 
 class proyectosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function ver_proyecto($id)
     {
-        if(Auth::check()){
-            return view('ver_proyecto');
-        }else{
-            return redirect('/');
-        }
+        return view('ver_proyecto', compact('id'));
+    }
+
+    public function miembros($id)
+    {
+        return view('miembros', compact('id'));
     }
 
 
@@ -31,9 +28,9 @@ class proyectosController extends Controller
         $user = Auth::user();
         $params = $request->post();
 
-        $proyectos = (new proyecto())->whereHas('miembros', function (Builder $query) use($user) {
+        $proyectos = (new Proyecto())->whereHas('miembros', function (Builder $query) use($user) {
             $query->where('user_id', $user->id);
-        })->Nombre($params)->orderBy('id', 'desc')->get()->map(function (proyecto $proyecto){
+        })->Nombre($params)->orderBy('id', 'desc')->get()->map(function (Proyecto $proyecto){
             return ['fecha' => $proyecto->created_at->format('d/m/Y h:m:s'),
                     'cantidad_personas' => $proyecto->cantidad_personas,
                     'miembros' => $proyecto->miembros->count(),
@@ -48,20 +45,11 @@ class proyectosController extends Controller
 
         $response = [
                     'proyectos' =>  $proyectos,
-                    'load' => [['tiene_datos' => 1]]                
-                ];       
+                    'load' => [['tiene_datos' => 1]]
+                ];
         return response()->json($response, 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-            //..
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -69,7 +57,7 @@ class proyectosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function ajax_crear_proyecto(Request $request)
     {
         $user = Auth::user();
         $params = $request->post();
@@ -84,50 +72,5 @@ class proyectosController extends Controller
                 'message' => "Se a creado el proyecto con exito"
         ];
         return response()->json($response, 200);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

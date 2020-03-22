@@ -48,19 +48,17 @@
         </div>
     </div>
 </template>
-<script>
-import toastr from 'toastr';
 
+<script>
     export default {
-        name: "nuevoproyecto",
+        name: "detalle",
 
         data() {
             return {
                 nombre: '',
                 cantidad_personas: '',
                 descripcion: '',
-                name: 'nuevoproyecto'
-
+                name: 'detalle'
             };
         },
         mounted() {
@@ -78,31 +76,9 @@ import toastr from 'toastr';
             },
             show() {
                 let modal = $('#' + this.name + 'Modal');
-                return new Promise((resolve) => {
-                    this.resolve = resolve;
-                    modal.modal('show');
-                });
+                modal.modal('show');
             },
             guardar() {
-                return new Promise((resolve) => {
-                    let formData = new FormData();
-
-                    formData.append("nombre", this.nombre);
-                    formData.append("descripcion", this.descripcion);
-                    formData.append("cantidad_personas", this.cantidad_personas)
-                    this.hide();
-
-                    axios.post('proyecto/ajax_crear_proyecto',formData ).then((response) => {
-                        toastr.success("Se a creado el proyecto");
-                        this.nombre = '';
-                        this.cantidad_personas = '';
-                        this.descripcion = '';
-                        this.$emit('llamarFuncion');
-                    }).catch((error) => {
-                        //toastr.error(error.response.data.message);
-
-                    });
-                });
             },
         },
 
