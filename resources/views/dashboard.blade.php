@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <dashboard></dashboard>
+    <dashboard
+        dashboard_id="{{$id}}"
+    ></dashboard>
 @endsection

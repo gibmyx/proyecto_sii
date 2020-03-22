@@ -3,7 +3,7 @@
         <sidebar :data="data"></sidebar>
         <div id="page-wrapper" class="gray-bg dashbard-1">
             <navbar></navbar>
-            <contenedor></contenedor>
+            <contenedor :dashboard_id="dashboard_id" :data="data"></contenedor>
         </div>
     </div>
 </template>
@@ -14,7 +14,8 @@
     import contenedor from "./contenedor";
 
     export default {
-        data:function(){
+        props: ['dashboard_id'],
+        data (){
             return {
                 data: {
                     nombre: '',

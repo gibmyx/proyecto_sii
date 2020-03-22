@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\modulos\dashboard\servicios\guardarUsuario;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,80 +14,40 @@ class dashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function dashboard($id)
     {
-        if(Auth::check()){
-            return view('dashboard');
-        }else{
-            return redirect('/');
+        return view('dashboard', compact('id'));
+    }
+
+    public function ajax_get_usuario($id)
+    {
+        $datos = User::where('id', $id)->get()->map(function (User $user){
+            return [
+                'id' => $user->id,
+                'nombre' => $user->name,
+                'foto' => $user->profile,
+                'descripcion' => !empty($user->descripcion) ? $user->descripcion : '',
+                'email' => $user->email,
+                'proyectos' => $user->proyectos()->count(),
+                'tareas' => 0,
+                'seguidores' => 0
+            ];
+        })->toArray();
+        $response = [
+            'perfil' =>  $datos[0]
+        ];
+        return response()->json($response, 200);
+    }
+
+    public function ajax_guardar_perfil(Request $request){
+        $params = $request->input();
+        try {
+            (new guardarUsuario())->save($params);
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
         }
+        $response = [
+            'message' => "Se a creado el proyecto con exito"
+        ];
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    
 }

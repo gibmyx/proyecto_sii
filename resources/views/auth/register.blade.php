@@ -61,20 +61,6 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="last" class="col-md-12 col-form-label text-md-left">Apellido</label>
-
-                                        <div class="col-md-12">
-                                            <input id="last" type="text" class="form-control @error('last') is-invalid @enderror" name="last" value="{{ old('last') }}" autofocus>
-
-                                            @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
                                         <label for="sex" class="col-md-12 col-form-label text-md-left">Sexo</label>
 
                                         <div class="col-md-12">

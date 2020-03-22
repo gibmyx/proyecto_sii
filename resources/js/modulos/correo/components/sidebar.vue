@@ -4,8 +4,7 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="profile-element profile">
-                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'hombre'" height="60px" width="60px" alt="image" class="rounded-circle" src="img/profile/perfil-hombre-default.jpg"/>
-                        <img v-show="data.profile =='defaultProfile.jpg' && data.sex == 'mujer'"  height="60px" width="60px" alt="image" class="rounded-circle" src="img/profile/perfil-mujer-default.jpg"/>
+                        <img  height="60px" width="60px" alt="image" class="rounded-circle" :src="'/img/profile/'+data.profile"/>
                         <a data-toggle="dropdown" class="dropdown-toggle" :href="'/dashboard/'+data.user_id">
                             <span class="block m-t-xs font-bold">{{data.nombre}} {{data.apellido}}</span>
                             <span class="text-muted text-xs block">Programador BackEnd</span>
